@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Countable Goals</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+  </head>
+  <body ng-app="countableGoals">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <ui-view></ui-view>
+    </div>
+  </div>
+    <script type="text/ng-template" id="/home.html">
+      <form name="testForm" ng-submit="goalCtrl.addGoal()">
+        <input type="text" ng-model="goalCtrl.newGoal.title" placeholder="New goal title"></input>
+        <input type="text" ng-model="goalCtrl.newGoal.total" placeholder="##"></input>
+        <button type="submit">Create</button>
+      </form>
+      <ul>
+        <li ng-repeat="goal in goalCtrl.goals">
+        {{goal.title}} - {{goal.completed}} / {{goal.total}}
+        </li>
+      </ul>
+    </script>
+  </body>
+</html>
